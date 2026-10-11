@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Buku Panduan Operasional Digital Scoring | 2 Cahaya Digital Sport</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Variabel Tema Hijau Cerah & Elegan */
+        :root {
+            --bg-main: #f4f9f6; /* Abu-abu kehijauan sangat terang untuk background */
+            --bg-card: #ffffff;
+            --green-primary: #2ecc71; /* Hijau cerah utama */
+            --green-dark: #27ae60; /* Hijau lebih gelap untuk efek hover */
+            --green-light: #eafaf1; /* Hijau super pudar untuk background aksen */
+            --text-dark: #2c3e50;
+            --text-regular: #4a5568;
+            --text-muted: #718096;
+            --highlight-green: #e6ffed;
+            --highlight-text: #1e7e34;
+            --shadow-soft: 0 8px 24px rgba(149, 157, 165, 0.1);
+            --shadow-hover: 0 12px 32px rgba(46, 204, 113, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-regular);
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(46, 204, 113, 0.2);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .logo {
+            font-size: clamp(16px, 4vw, 22px);
+            font-weight: 800;
+            color: var(--green-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 35px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            padding: 50px 20px 30px;
+            text-align: center;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f8f3 100%);
+        }
+
+        .hero h1 {
+            font-size: clamp(24px, 5vw, 36px);
+            color: var(--text-dark);
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: clamp(14px, 3.5vw, 16px);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 25px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--green-primary);
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(46, 204, 113, 0.4);
+            background: var(--green-dark);
+        }
+
+        /* Content / Book Section */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-soft);
+            border-top: 4px solid var(--green-primary);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 2px solid var(--green-light);
+            padding-bottom: 15px;
+        }
+
+        .section-title i {
+            color: var(--green-primary);
+        }
+
+        /* List Styles */
+        .manual-list {
+            list-style: none;
+            counter-reset: custom-counter;
+        }
+
+        .manual-list > li {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 45px;
+        }
+
+        .manual-list > li::before {
+            counter-increment: custom-counter;
+            content: counter(custom-counter);
+            position: absolute;
+            left: 0;
+            top: 2px;
+            background: var(--green-light);
+            color: var(--green-primary);
+            font-weight: 700;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--green-primary);
+        }
+
+        .manual-list h3 {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .manual-list p {
+            font-size: 14.5px;
+            color: var(--text-regular);
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        /* Marker (Teks yang di-highlight hijau seperti di PDF) */
+        .highlight {
+            background-color: var(--highlight-green);
+            color: var(--highlight-text);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 500;
+            border: 1px solid rgba(34, 134, 58, 0.2);
+        }
+
+        /* Sub-list (Menu Dewan, dll) */
+        .sub-list {
+            list-style-type: none;
+            margin-top: 10px;
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--green-primary);
+        }
+
+        .sub-list li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: flex;
+        }
+
+        .sub-list li strong {
+            width: 170px;
+            flex-shrink: 0;
+            color: var(--text-dark);
+        }
+        
+        .sub-list li span {
+            color: var(--text-regular);
+        }
+
+        /* WhatsApp Floating Button */
+        .wa-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0px 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .wa-float:hover {
+            background-color: #128c7e;
+            transform: scale(1.1);
+            color: #FFF;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: #ffffff;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            margin-top: auto;
+        }
+
+        /* Status Firebase */
+        #firebase-status {
+            text-align: center;
+            font-size: 12px;
+            color: var(--green-primary);
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .card { padding: 20px; }
+            .manual-list > li { padding-left: 35px; }
+            .manual-list > li::before { width: 25px; height: 25px; font-size: 14px; top: 0;}
+            .sub-list li { flex-direction: column; border-bottom: 1px dashed #e2e8f0; padding-bottom: 8px;}
+            .sub-list li strong { width: 100%; margin-bottom: 2px; }
+            .sub-list li:last-child { border-bottom: none; padding-bottom: 0;}
+            .wa-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 30px;
+            }
+        }
+
+        /* CSS KHUSUS UNTUK CETAK PDF */
+        @media print {
+            body {
+                background-color: #ffffff;
+            }
+            header, .btn-download, #firebase-status, .wa-float, footer {
+                display: none !important;
+            }
+            .hero {
+                margin-top: 0;
+                padding: 20px 0;
+                background: none;
+            }
+            .card {
+                box-shadow: none;
+                border: none;
+                border-top: none;
+                padding: 0;
+                margin-bottom: 20px;
+            }
+            .section-title {
+                border-bottom: 2px solid #000;
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <!-- Menambahkan logo di sebelah judul -->
+            <img src="https://iili.io/CShnhS2.png" alt="Logo"> 2 Cahaya Digital Sport
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Buku Panduan Operasional<br><span style="color: var(--green-primary);">Digital Scoring</span></h1>
+        <p>Pedoman lengkap penggunaan aplikasi Digital Scoring Pencak Silat. Tersinkronisasi dengan Database Firebase Realtime.</p>
+        
+        <!-- Tombol Download PDF (Akan memanggil dialog Print/Save as PDF browser) -->
+        <button onclick="window.print()" class="btn-download">
+            <i class="fas fa-cloud-download-alt"></i> Download PDF Pedoman
+        </button>
+        <div id="firebase-status"><i class="fas fa-spinner fa-spin"></i> Menghubungkan ke Database...</div>
+    </section>
+
+    <!-- Konten Panduan -->
+    <div class="container">
+        
+        <!-- BAGIAN A -->
+        <div class="card">
+            <!-- Icon/gambar di sebelah judul A dihapus sesuai instruksi -->
+            <h2 class="section-title">A. Alur Penggunaan Digital Scoring</h2>
+            <ol class="manual-list">
+                <li>
+                    <h3>Menu Sekretaris</h3>
+                    <p>Pendaftaran peserta secara manual dapat dilakukan pada menu sekretaris dengan mengisi kolom dan opsi tabel yang sudah tersedia, kemudian klik simpan. Apabila peserta lebih dari 1 halaman, lakukan hal yang sama dalam pengisian data yang tersedia kemudian <span class="highlight">klik simpan sebelum pindah ke halaman yang lain</span>.</p>
+                </li>
+                <li>
+                    <h3>Menu Looting</h3>
+                    <p>Pendaftaran peserta dengan sistem looting dapat dilakukan di menu looting pada <span class="highlight">halaman input data</span>, isikan data pada tabel yang sudah tersedia lalu klik simpan. Setelah data tersimpan masuk pada <span class="highlight">halaman data looting di menu looting</span>, kemudian pilih filter sesuai kelas yang akan dipertandingkan dan klik tombol proses loting.</p>
+                </li>
+                <li>
+                    <h3>Menu Operator</h3>
+                    <p>Masuk pada menu operator untuk validasi data peserta sesuai dengan kategori pertandingan yang telah di daftarkan sebelumnya. Apabila data peserta sudah benar maka tahap memulai pertandingan adalah <span class="highlight">klik tombol fight</span> di sebelah kolom peserta yang akan bertanding. <span class="highlight">Klik tombol ready</span> apabila peserta sedang dalam partai persiapan. <span class="highlight">Klik tombol finish</span> jika pertandingan sudah berakhir, maka tombol akan otomatis berpindah di tombol finish.</p>
+                    <p>Perhatikan dalam setiap pertandingan pastikan tombol ready, fight, finish <span class="highlight">hanya salah satu lampu yang menyala</span>. Apabila tombol finish menyala maka tombol tidak akan bisa di ubah ke ready dan fight. Kemudian <span class="highlight">klik tombol go</span> untuk menyalakan waktu pertandingan dan <span class="highlight">klik tombol reset</span> untuk mengembalikan waktu pertandingan seperti semula.</p>
+                </li>
+                <li>
+                    <h3>Menu Juri Dan Menu Dewan</h3>
+                    <p>Masuk pada menu juri untuk validasi data penilaian, pastikan nama peserta dan kategori pertandingan yang di daftarkan sudah benar.</p>
+                </li>
+                <li>
+                    <h3>Menu Jadwal</h3>
+                    <p>Masuk pada menu jadwal untuk memastikan bahwa peserta yang di daftarkan sudah masuk dalam jadwal pertandingan.</p>
+                </li>
+                <li>
+                    <h3>Menu Laporan Pertandingan</h3>
+                    <p>Masuk pada menu laporan pertandingan untuk mendownlod hasil laporan pertandingan jika dibutuhkan, laporan pertandingan secara realtime maka pastikan <span class="highlight">download laporan hasil pertandingan sebelum klik tombol finish pada menu operator</span>.</p>
+                </li>
+            </ol>
+        </div>
+
+        <!-- BAGIAN B -->
+        <div class="card">
+            <h2 class="section-title"><i class="fas fa-tools"></i> B. Fungsi Fitur Pada Menu</h2>
+            <ol class="manual-list">
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">1. Menu Dewan</span></h3>
+                    <ul class="sub-list">
+                        <li><strong>a. Tombol Home</strong> <span>: kembali ke menu</span></li>
+                        <li><strong>b. Tombol Laptop</strong> <span>: tampilan laptop</span></li>
+                        <li><strong>c. Tombol lingkaran</strong> <span>: reset out juri</span></li>
+                        <li><strong>d. Indikator J1-J2-J3</strong> <span>: hijau juri in / merah juri out</span></li>
+                        <li><strong>e. Tombol Finish</strong> <span>: pertandingan selesai dan tersimpan</span></li>
+                        <li><strong>f. Tombol Next</strong> <span>: pertandingan berikutnya</span></li>
+                        <li><strong>g. Tombol UD</strong> <span>: peserta undur diri</span></li>
+                        <li><strong>h. Tombol WMP</strong> <span>: peserta menang teknik</span></li>
+                        <li><strong>i. Tombol Disk.</strong> <span>: peserta diskualifikasi</span></li>
+                        <li><strong>j. Tombol VAR</strong> <span>: verifikasi jatuhan dan pelanggaran</span></li>
+                        <li><strong>k. Tampilan Statistik</strong> <span>: statistic jatuhan dan pelanggaran</span></li>
+                        <li><strong>l. Tombol (+1+2/-1-2)</strong> <span>: pengurangan atau penambahan jika salah input</span></li>
+                        <li><strong>m. Tombol Pinalty</strong> <span>: binaan, teguran dan peringatan</span></li>
+                        <li><strong>n. Tombol Jatuhan</strong> <span>: poin jatuhan peserta</span></li>
+                        <li><strong>o. Tombol Anulir Jatuhan</strong> <span>: anulir poin jatuhan</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">2. Menu Sekretaris</span></h3>
+                    <p>Isi data sesuai dengan tabel kemudian klik simpan.</p>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">3. Menu Operator</span></h3>
+                    <ul class="sub-list">
+                        <li><strong>a. Go/Pause/Reset</strong> <span>: timer on / timer stop / reset timer</span></li>
+                        <li><strong>b. Round</strong> <span>: perpindahan babak</span></li>
+                        <li><strong>c. Ready/Fight/Finish</strong> <span>: partai persiapan / partai tanding / partai selesai</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">4. Menu Juri</span></h3>
+                    <p>Klik tombol pukulan dan tendangan.</p>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">5. Menu Looting</span></h3>
+                    <p>Isi data sesuai dengan tabel kemudian klik simpan.</p>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">6. Menu Jadwal</span></h3>
+                    <p>Unduh data pdf.</p>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">7. Menu Bracket</span></h3>
+                    <p>Unduh data pdf.</p>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">8. Menu Laporan Pertandingan</span></h3>
+                    <p>Unduh data pdf.</p>
+                </li>
+                <li>
+                    <h3><span class="highlight" style="background:var(--green-light); color:var(--green-primary); border-color:var(--green-primary);">9. Menu Monitor</span></h3>
+                    <p>Tampilan poin hasil pertandingan.</p>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+    <!-- Tombol WhatsApp Melayang -->
+    <a href="https://wa.me/62895322628956" target="_blank" class="wa-float" title="Hubungi kami via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 2 Cahaya Digital Sport - Database Buku Panduan Digital Scoring.</p>
+    </footer>
+
+    <!-- FIREBASE REALTIME DATABASE INITIALIZATION (SDK v10) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        // Konfigurasi Firebase Anda
+        const firebaseConfig = {
+            apiKey: "AIzaSyB1MHdbvioQaeyh0wRwb279UTIxMyLZKVw",
+            authDomain: "uji-coba-2-ad2ef.firebaseapp.com",
+            databaseURL: "https://uji-coba-2-ad2ef-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "uji-coba-2-ad2ef",
+            storageBucket: "uji-coba-2-ad2ef.firebasestorage.app",
+            messagingSenderId: "326062820861",
+            appId: "1:326062820861:web:353cd3c548c492f29e1d94"
+        };
+
+        const statusEl = document.getElementById('firebase-status');
+
+        try {
+            // Inisialisasi Aplikasi Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase(app);
+            
+            // Referensi ke path 'pedoman_buku' untuk memonitor interaksi / data pedoman
+            const pedomanRef = ref(db, 'pedoman_buku');
+
+            onValue(pedomanRef, (snapshot) => {
+                // Menandakan Firebase berhasil terhubung
+                statusEl.innerHTML = '<i class="fas fa-check-circle"></i> Terhubung ke Firebase Realtime Database';
+                statusEl.style.color = 'var(--highlight-text)';
+            }, (error) => {
+                statusEl.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Gagal menghubungkan ke Database';
+                statusEl.style.color = '#e74c3c';
+            });
+            
+        } catch (error) {
+            console.error("Firebase Error:", error);
+            statusEl.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Konfigurasi Firebase Error';
+            statusEl.style.color = '#e74c3c';
+        }
+    </script>
+</body>
+</html>
